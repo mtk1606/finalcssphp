@@ -1,115 +1,88 @@
-# Gaming Laptop Marketplace
+# Gaming Laptop Store - Phase 1
 
-## Description
-A dynamic e-commerce platform for gaming laptops built with PHP, MySQL, HTML, and CSS. Features both a public customer view and a secure admin backend for product management.
+A gaming laptop e-commerce website built with PHP and custom CSS as a college project.
 
-## Technologies
-- **Frontend:** HTML, CSS (Flexbox)
-- **Backend:** PHP (Sessions, CRUD operations, Template system)
-- **Database:** MySQL (Admin users, Products)
-- **Version Control:** Git & GitHub
+## Project Overview
+This is Phase 1 of a two-phase project for Intro to Web Programming (PHP) and Interface Design (CSS) courses. Currently displays static product data with a focus on layout, design, and front-end functionality.
+
+## Technologies Used
+- **PHP** - Server-side templating
+- **HTML5** - Semantic markup
+- **CSS3** - Custom styling (Flexbox-based layout)
+- **MySQL** - Database structure (ready for Phase 2)
+
+## Current Features (Phase 1)
+- Homepage with featured products section
+- Full product catalog page
+- About page with company information
+- Contact form with basic validation
+- Login/Register pages (authentication coming in Phase 2)
+- Responsive design for mobile and desktop
+- Header/Footer template system
 
 ## Project Structure
 ```
-PHPCSSFINAL/
-├── index.php
-├── shop.php
-├── product.php
-├── about.php
-├── contact.php
-├── register.php
-├── login.php
+gaming-laptop-store/
+├── index.php           # Homepage
+├── shop.php            # All products page
+├── about.php           # About us page
+├── contact.php         # Contact form
+├── login.php           # Login page
+├── register.php        # Registration page
 ├── css/
-│   └── style.css
+│   └── style.css       # All custom styling
 ├── templates/
-│   ├── header.php
-│   └── footer.php
-├── includes/
-│   ├── config.php
-│   └── Database.php
+│   ├── header.php      # Reusable header
+│   └── footer.php      # Reusable footer
 ├── assets/
-│   └── (placeholder images)
-└── sql/
-    └── schema.sql
+│   └── (laptop images) # Product images
+└── database.sql        # Database structure
 ```
 
-## Database Schema
+## Design Specifications
+- **Color Scheme:** Red (#cc0000, #ff3333) and dark tones (#1a0000, #2b2b2b)
+- **Typography:** 
+  - Headings: Orbitron (bold, futuristic)
+  - Body: Roboto (clean, readable)
+- **Layout:** Flexbox-based responsive grid
+- **Effects:** Hover animations, transitions, box shadows
 
-### admin_users Table
-| Field | Type | Constraints |
-|-------|------|-------------|
-| id | INT | PRIMARY KEY, AUTO_INCREMENT |
-| name | VARCHAR(100) | NOT NULL |
-| email | VARCHAR(100) | UNIQUE, NOT NULL |
-| password | VARCHAR(255) | NOT NULL (hashed) |
+## Database Setup
+1. Create a MySQL database
+2. Import `database.sql` to create tables:
+   - `admin_users` - For admin authentication (Phase 2)
+   - `products` - For laptop inventory (Phase 2)
 
-### products Table
-| Field | Type | Constraints |
-|-------|------|-------------|
-| id | INT | PRIMARY KEY, AUTO_INCREMENT |
-## Setup Instructions
+## Local Setup
+1. Clone or download this repository
+2. Place in your web server directory (e.g., `htdocs/` for XAMPP)
+3. Import `database.sql` into phpMyAdmin
+4. Add laptop images to `/assets` folder
+5. Visit `http://localhost/gaming-laptop-store` in browser
 
-### Requirements
-- PHP 7.4+
-- MySQL 5.7+
-- Apache/XAMPP/WAMP
+## Phase 1 Completion Checklist
+- [x] All customer-facing pages built
+- [x] Header/Footer templating
+- [x] Custom CSS (no Bootstrap/frameworks)
+- [x] Two different fonts implemented
+- [x] Consistent color scheme
+- [x] Responsive design
+- [x] Database structure created
+- [x] Static placeholder content
 
-### Installation Steps
+## What's Coming in Phase 2
+- Database connection and dynamic content
+- Admin dashboard with CRUD functionality
+- User authentication with sessions
+- Password hashing and security
+- Image upload system
+- Product management system
 
-1. **Clone Repository**
-   ```
-   git clone https://github.com/yourusername/PHPCSSFINAL.git
-   cd PHPCSSFINAL
-   ```
+## Notes
+All content is currently static (hardcoded arrays). Database integration scheduled for Phase 2.
 
-2. **Create Database**
-   - Open phpMyAdmin
-   - Import `sql/schema.sql`
-   - This creates `admin_users` and `products` tables
-
-3. **Configure Database**
-   - Edit `includes/config.php`
-   - Update DB_HOST, DB_USER, DB_PASS, DB_NAME
-
-4. **Run Project**
-   - Place folder in `htdocs/` (XAMPP) or `www/` (WAMP)
-   - Start Apache & MySQL
-   - Visit `http://localhost/PHPCSSFINAL`
-
-## Features
-
-### Public Pages
-- Homepage with featured products
-- Product listing with filter sidebar
-- Single product detail pages
-- About page
-- Contact form
-- User registration with email validation
-
-### Security
-- CSRF token protection
-- Password hashing (bcrypt)
-- Prepared statements (SQL injection prevention)
-- Input validation & sanitization
-- Session-based authentication
-
-## Phase 1 Status (Nov 11)
-
-### Completed
-- All customer-facing pages (HTML/CSS)
-- Header/Footer templating
-- Responsive Flexbox design
-- Basic security implementation
-- Database schema
-- Color scheme (Red & Dark palette)
-- Two fonts (Georgia + Arial)
-
-### Next Phase (Phase 2)
-- Database integration for product listing
-- Admin CRUD functionality
-- Login/Logout with session control
-- Dynamic product pages from database
-- Update `README.md` with full setup instructions and screenshots.
-- Deploy to Georgian College server and confirm functionality.
-- Submit GitHub link + server URL by **December 12**.
 ---
+
+**Course:** Intro to Web Programming (PHP) & Interface Design (CSS)  
+**Due Date:** Phase 1 - November 11, 2025 | Phase 2 - December 12, 2025  
+**Student:** Mohamed el khoudimi

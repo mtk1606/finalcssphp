@@ -1,0 +1,493 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Roboto:wght@400;500&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: #1a0000;
+    color: #fff;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* header */
+.mainHeader {
+    background: #2b2b2b;
+    padding: 1rem 0;
+    border-bottom: 2px solid #cc0000;
+}
+
+.mainHeader .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo a {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.8rem;
+    color: #cc0000;
+    text-decoration: none;
+    font-weight: 900;
+    transition: color 0.3s ease;
+}
+
+.logo a:hover {
+    color: #ff3333;
+}
+
+nav ul {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.3s;
+    padding: 5px 0;
+    border-bottom: 2px solid transparent;
+}
+
+nav a:hover {
+    color: #ff3333;
+    border-bottom: 2px solid #ff3333;
+}
+
+/* buttons */
+.btnPrimary, .btnSecondary {
+    display: inline-block;
+    padding: 12px 30px;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 0.3s;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.btnPrimary {
+    background: #cc0000;
+    color: #fff;
+}
+
+.btnPrimary:hover {
+    background: #ff3333;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(204, 0, 0, 0.4);
+}
+
+.btnSecondary {
+    background: transparent;
+    color: #cc0000;
+    border: 2px solid #cc0000;
+}
+
+.btnSecondary:hover {
+    background: #cc0000;
+    color: #fff;
+    transform: scale(1.05);
+}
+
+/* hero section */
+.hero {
+    background: linear-gradient(135deg, #2b2b2b 0%, #1a0000 100%);
+    padding: 120px 0;
+    text-align: center;
+    position: relative;
+}
+
+/* tried adding animation but keeping it simple for now
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+*/
+.heroWrap h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #cc0000;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.heroWrap p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: #fff;
+}
+
+/* page headers */
+.pageHeader {
+    background: #2b2b2b;
+    padding: 80px 0;
+    text-align: center;
+}
+
+.pageHeader h1 {
+    font-family: 'Orbitron', sans-serif;
+    color: #cc0000;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.featured, .allProducts {
+    padding: 80px 0;
+}
+
+.featured h2, .allProducts h2 {
+    font-family: 'Orbitron', sans-serif;
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: #cc0000;
+}
+
+/* product grid - using flexbox mainly */
+/* tried grid first but items werent sizing right
+.productGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+*/
+.productGrid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.productCard {
+    background: #2b2b2b;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.3s;
+    flex: 0 1 calc(33.333% - 2rem);
+    min-width: 280px;
+}
+
+.productCard:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 16px rgba(204, 0, 0, 0.3);
+}
+
+.productCard img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.productCard:hover img {
+    transform: scale(1.1);
+}
+
+.productCard h3 {
+    font-family: 'Orbitron', sans-serif;
+    margin-bottom: 0.5rem;
+    color: #fff;
+    padding: 1.5rem 1.5rem 0;
+}
+
+.info {
+    padding: 0 1.5rem 1.5rem;
+}
+
+.specs {
+    color: #888;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.price {
+    font-size: 1.5rem;
+    color: #ff3333;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+/* callout section */
+.callout {
+    background: #444;
+    padding: 60px 0;
+    text-align: center;
+    position: relative;
+}
+
+.callout::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #cc0000, transparent);
+}
+
+.callout h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.callout p {
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+}
+
+/* about page sections */
+.story {
+    padding: 60px 0;
+}
+
+.story h2 {
+    font-family: 'Orbitron', sans-serif;
+    color: #cc0000;
+    margin-bottom: 2rem;
+}
+
+.story p {
+    max-width: 800px;
+    margin: 0 auto 1.5rem;
+    font-size: 1.1rem;
+}
+
+.whyUs {
+    padding: 60px 0;
+    background: #2b2b2b;
+}
+
+.whyUs h2 {
+    font-family: 'Orbitron', sans-serif;
+    color: #cc0000;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.valueBoxes {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* this wasnt working the way i wanted
+.valueBoxes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+*/
+
+.box {
+    background: #444;
+    padding: 2rem;
+    border-radius: 8px;
+    text-align: center;
+    flex: 0 1 300px;
+    transition: all 0.3s;
+    border: 2px solid transparent;
+}
+
+.box:hover {
+    border-color: #cc0000;
+    transform: translateY(-5px);
+}
+
+.box h3 {
+    color: #ff3333;
+    margin-bottom: 1rem;
+}
+
+/* forms */
+.contactSection, .loginSection, .registerSection {
+    padding: 80px 0;
+}
+
+form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.field {
+    margin-bottom: 1.5rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #fff;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+    width: 100%;
+    padding: 12px;
+    background: #2b2b2b;
+    border: 1px solid #444;
+    border-radius: 4px;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    transition: border-color 0.3s;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: #cc0000;
+}
+
+.errMsg {
+    color: #ff3333;
+    font-size: 0.9rem;
+    display: block;
+    margin-top: 0.5rem;
+}
+
+.successMsg, .successBox {
+    background: #2b2b2b;
+    color: #fff;
+    padding: 1rem;
+    border-radius: 4px;
+    margin-bottom: 2rem;
+    border-left: 4px solid #cc0000;
+}
+
+.errBox {
+    background: #2b2b2b;
+    color: #ff3333;
+    padding: 1rem;
+    border-radius: 4px;
+    margin-bottom: 2rem;
+    border-left: 4px solid #ff3333;
+}
+
+.formBox {
+    max-width: 500px;
+    margin: 0 auto;
+    background: #2b2b2b;
+    padding: 3rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.formBox h1 {
+    font-family: 'Orbitron', sans-serif;
+    color: #cc0000;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.altLink {
+    text-align: center;
+    margin-top: 1.5rem;
+}
+
+.altLink a {
+    color: #ff3333;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.altLink a:hover {
+    color: #cc0000;
+}
+
+/* footer */
+footer {
+    background: #2b2b2b;
+    padding: 3rem 0 1rem;
+    border-top: 2px solid #cc0000;
+    margin-top: 4rem;
+}
+
+.footerWrap {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.footCol {
+    flex: 1;
+    min-width: 200px;
+}
+
+.footCol h3 {
+    font-family: 'Orbitron', sans-serif;
+    color: #cc0000;
+    margin-bottom: 1rem;
+}
+
+.footCol h4 {
+    color: #ff3333;
+    margin-bottom: 0.5rem;
+}
+
+.footCol ul {
+    list-style: none;
+}
+
+.footCol a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footCol a:hover {
+    color: #ff3333;
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid #444;
+    color: #888;
+}
+
+/* responsive - mobile */
+@media (max-width: 768px) {
+    .mainHeader .container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+    
+    .heroWrap h1 {
+        font-size: 2rem;
+    }
+    
+    .productGrid {
+        flex-direction: column;
+    }
+    
+    .productCard {
+        flex: 1 1 100%;
+    }
+    
+    .valueBoxes {
+        flex-direction: column;
+    }
+    
+    .footerWrap {
+        flex-direction: column;
+        text-align: center;
+    }
+}

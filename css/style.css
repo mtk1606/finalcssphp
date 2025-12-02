@@ -457,6 +457,185 @@ footer {
     color: #888;
 }
 
+/* product detail page */
+.productDetail {
+    padding: 80px 0;
+}
+
+.productWrap {
+    display: flex;
+    gap: 3rem;
+    flex-wrap: wrap;
+}
+
+.productImg {
+    flex: 1;
+    min-width: 300px;
+}
+
+.productImg img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.productContent {
+    flex: 1;
+    min-width: 300px;
+}
+
+.productContent h1 {
+    font-family: 'Orbitron', sans-serif;
+    color: #cc0000;
+    margin-bottom: 1rem;
+}
+
+.productPrice {
+    font-size: 2rem;
+    color: #ff3333;
+    font-weight: bold;
+    margin-bottom: 2rem;
+}
+
+.productSpecs, .productDesc {
+    margin-bottom: 2rem;
+}
+
+.productSpecs h3, .productDesc h3 {
+    color: #ff3333;
+    margin-bottom: 0.5rem;
+}
+
+.productStock {
+    margin-bottom: 2rem;
+}
+
+.inStock {
+    color: #4caf50;
+    font-weight: bold;
+}
+
+.outStock {
+    color: #f44336;
+    font-weight: bold;
+}
+
+/* admin dashboard styles */
+.adminDashboard {
+    padding: 80px 0;
+}
+
+.dashHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.dashHeader h1 {
+    font-family: 'Orbitron', sans-serif;
+    color: #cc0000;
+}
+
+.dashActions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.tableWrap {
+    overflow-x: auto;
+}
+
+.adminTable {
+    width: 100%;
+    background: #2b2b2b;
+    border-radius: 8px;
+    border-collapse: collapse;
+}
+
+.adminTable thead {
+    background: #444;
+}
+
+.adminTable th {
+    padding: 1rem;
+    text-align: left;
+    color: #ff3333;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.adminTable td {
+    padding: 1rem;
+    border-top: 1px solid #444;
+}
+
+.tableThumbnail {
+    width: 80px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.actionBtns {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.btnEdit, .btnDelete {
+    padding: 6px 12px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.3s;
+}
+
+.btnEdit {
+    background: #2196f3;
+    color: #fff;
+}
+
+.btnEdit:hover {
+    background: #1976d2;
+}
+
+.btnDelete {
+    background: #f44336;
+    color: #fff;
+}
+
+.btnDelete:hover {
+    background: #d32f2f;
+}
+
+/* admin forms */
+.adminForm {
+    padding: 80px 0;
+}
+
+.adminForm h1 {
+    font-family: 'Orbitron', sans-serif;
+    color: #cc0000;
+    margin-bottom: 2rem;
+}
+
+.adminForm form {
+    max-width: 800px;
+}
+
+.formActions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.currentImg {
+    max-width: 200px;
+    border-radius: 4px;
+    margin-top: 0.5rem;
+}
+
 /* responsive - mobile */
 @media (max-width: 768px) {
     .mainHeader .container {

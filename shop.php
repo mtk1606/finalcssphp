@@ -1,6 +1,17 @@
-<?php 
+?php 
+require_once 'includes/config.php';
+require_once 'includes/Database.php';
+
 $title = "Shop - Gaming Laptops";
 $desc = "Browse all available gaming laptops in our store";
+
+// get all products from db
+$db = new Database();
+$conn = $db->connect();
+$stmt = $conn->prepare("SELECT * FROM products ORDER BY created_at DESC");
+$stmt->execute();
+$laptops = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
 require_once 'templates/header.php';
 ?>
 
@@ -13,27 +24,17 @@ require_once 'templates/header.php';
 
 <section class="allProducts">
     <div class="container">
-        <?php
-        // placeholder til db connection works
-        $laptops = [
-            ['id' => 1, 'model' => 'Predator X15', 'price' => 1299, 'specs' => 'RTX 4060, i7-13700H', 'img' => 'laptop1.jpg'],
-            ['id' => 2, 'model' => 'ROG Strix G17', 'price' => 1599, 'specs' => 'RTX 4070, Ryzen 9', 'img' => 'laptop2.jpg'],
-            ['id' => 3, 'model' => 'Legion 5 Pro', 'price' => 1899, 'specs' => 'RTX 4080, i9-13900H', 'img' => 'laptop3.jpg'],
-            ['id' => 4, 'model' => 'Razer Blade 15', 'price' => 2199, 'specs' => 'RTX 4090, i9-13900HX', 'img' => 'laptop4.jpg'],
-            ['id' => 5, 'model' => 'MSI Stealth 16', 'price' => 1799, 'specs' => 'RTX 4070, i7-13700H', 'img' => 'laptop5.jpg'],
-            ['id' => 6, 'model' => 'Alienware M17', 'price' => 2499, 'specs' => 'RTX 4090, i9-13980HX', 'img' => 'laptop6.jpg']
-        ];
-        ?>
-
+        <?php if(count($laptops) > 0): ?>
         <div class="productGrid">
             <?php 
             foreach($laptops as $l) {
+                $imgPath = !empty($l['image']) ? UPLOAD_URL . $l['image'] : 'assets/placeholder.jpg';
                 ?>
                 <div class="productCard">
-                <img src="assets/<?php echo $l['img']; ?>" alt="<?php echo $l['model']; ?>">
+                <img src="<?php echo $imgPath; ?>" alt="<?php echo htmlspecialchars($l['model']); ?>">
                 <div class="info">
-                <h3><?php echo $l['model']; ?></h3>
-                    <p class="specs"><?php echo $l['specs']; ?></p>
+                <h3><?php echo htmlspecialchars($l['model']); ?></h3>
+                    <p class="specs"><?php echo htmlspecialchars($l['specs']); ?></p>
                     <p class="price">$<?php echo number_format($l['price']); ?></p>
                     <a href="product.php?id=<?php echo $l['id']; ?>" class="btnSecondary">View Details</a>
                 </div>
@@ -42,6 +43,9 @@ require_once 'templates/header.php';
             }
             ?>
         </div>
+        <?php else: ?>
+            <p style="text-align: center;">No products available yet.</p>
+        <?php endif; ?>
     </div>
 </section>
 

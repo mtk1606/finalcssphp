@@ -1,20 +1,50 @@
 <?php 
+require_once 'includes/config.php';
+require_once 'includes/Database.php';
+require_once 'includes/functions.php';
+
 $title = "Admin Login - Gaming Laptops";
 $desc = "Admin login portal";
-require_once 'templates/header.php';
 
 $loginErr = '';
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $email = trim($_POST['email']);
+    $email = clean($_POST['email']);
     $pass = $_POST['password'];
     
-    // temp - will check db later
     if(empty($email) || empty($pass)) {
-        $loginErr = 'Both fields required';
+        $loginErr = 'both fields required';
+    } else {
+        // check db for user
+        $db = new Database();
+        $conn = $db->connect();
+        
+        $stmt = $conn->prepare("SELECT id, name, email, password FROM admin_users WHERE email = ?");
+        $stmt->execute([$email]);
+        
+        if($stmt->rowCount() == 1) {
+            $user = $stmt->fetch(PDO::FETCH_ASSOC);
+            
+            // verify password
+            if(password_verify($pass, $user['password'])) {
+                // login successful - create session
+                $_SESSION['admin_id'] = $user['id'];
+                $_SESSION['admin_name'] = $user['name'];
+                $_SESSION['admin_email'] = $user['email'];
+                
+                // redirect to admin dashboard
+                header('Location: admin/dashboard.php');
+                exit;
+            } else {
+                $loginErr = 'invalid email or password';
+            }
+        } else {
+            $loginErr = 'invalid email or password';
+        }
     }
-    // if login works redirect to admin panel (phase 2)
 }
+
+require_once 'templates/header.php';
 ?>
 
 <section class="loginSection">
